@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
 
     if @post.save
       flash[:notice] = "Post was successfully created."
@@ -16,11 +16,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find_by(params[:id])
+    @post = Post.find(params[:id])
 
     if @post.update(post_params)
       redirect_to dashboards_path

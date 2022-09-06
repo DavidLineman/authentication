@@ -8,10 +8,10 @@
   </ul>
 
   <% if session[:user_id] == post.user_id %>
-    <%= link_to "Edit", edit_post_path(post) %>
+    <%= link_to "Edit", edit_post_path(post) %> 
     <%= link_to "Create New Post", new_post_path %>
   <% end %>
 <% end %> 
 
-  
+ 
 

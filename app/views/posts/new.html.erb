@@ -2,7 +2,7 @@
 
 <h1>Create Post</h1>
 
-<%= form_with model: @post, method: "post" do |form| %>
+<%= form_with model: Post.new do |form| %>
   <div>
     <%= form.label :title %>
     <%= form.text_field :title %>
