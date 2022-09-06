@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.create(post_params)
 
     if @post.save
       flash[:notice] = "Post was successfully created."
@@ -17,6 +17,17 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by(params[:id])
+  end
+
+  def update
+    @post = Post.find_by(params[:id])
+
+    if @post.update(post_params)
+      redirect_to dashboards_path
+    else
+      flash[:alert] = "Post could not be updated"
+      render :new, status: :unprocessable_entity
+    end 
   end
 
   private 
